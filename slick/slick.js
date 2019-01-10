@@ -69,6 +69,7 @@
                 pauseOnHover: true,
                 pauseOnFocus: true,
                 pauseOnDotsHover: false,
+                resetTimerAfterPause: false,
                 respondTo: 'window',
                 responsive: null,
                 rows: 1,
@@ -2466,6 +2467,12 @@
 
         if( !toggle ) {
             _.autoPlay();
+        }
+
+        if ( _.options.resetTimerAfterPause && toggle ) {
+          _.autoPlayClear();
+        } else {
+          _.slickNext();
         }
         _.interrupted = toggle;
 
